@@ -10,8 +10,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         editText = findViewById(R.id.editText);
+
+        bacaFile();
     }
 
     private void buatFile(){
@@ -49,10 +54,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void bacaFile() {
+        File file = new File(getFilesDir(), FILENAME);
+        if (file.exists()) {
+            StringBuilder text = new StringBuilder();
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file));
+                String line = br.readLine();
+                while (line != null) {
+                    text.append(line);
+                    line = br.readLine();
+                }
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            editText.setText(text);
+        }
+        else{
+            editText.setText("");
+        }
+    }
+
+    private void hapusFile() {
+        File file = new File(getFilesDir(), FILENAME);
+        if (file.exists()) {
+            file.delete();
+            editText.setText("");
+        }
+    }
+
 
     public void onClick(View view) {
             if (view.getId() == R.id.button1)
                 buatFile();
-
+            else if (view.getId() == R.id.button2)
+                bacaFile();
+            else if (view.getId() == R.id.button3)
+                hapusFile();
     }
 }

@@ -12,27 +12,23 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/buat_file"
-        android:onClick="onClick"/>
+        android:text="@string/Simpan_file"
+        android:onClick="onClick" />
 
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/baca_file" />
+        android:text="@string/baca_file"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/update_file" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hapus_file" />
+        android:text="@string/hapus_file"
+        android:onClick="onClick"/>
 
     <EditText
         android:id="@+id/editText"
@@ -40,6 +36,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="textMultiLine" />
 
 </LinearLayout>
