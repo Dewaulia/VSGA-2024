@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">VSGA 2024</string>
+    <string name="tambah_catatan">Tambah Catatan</string>
+    <string name="nama_file">Nama File</string>
+    <string name="simpan">Simpan</string>
+    <string name="isi_catatan">Isi Catatan</string>
+    <string name="isi" />
+    <string name="isi_catatan_tidak_boleh_kosong" />
+    <string name="nama_file_tidak_boleh_kosong" />
 </resources>
