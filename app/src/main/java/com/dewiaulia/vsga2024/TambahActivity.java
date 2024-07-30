@@ -40,31 +40,31 @@ public class TambahActivity extends AppCompatActivity {
     }
 
     public void simpan(View view) {
-        // Sanity check
+        // sanity check
         String namaFile = namaEditText.getText().toString();
         if (namaFile.isEmpty()) {
-            Toast.makeText(this, R.string.nama_file_tidak_boleh_kosong,
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.nama_file_tidak_boleh_kosong, Toast.LENGTH_LONG).show();
             return;
         }
 
         String isiCatatan = catatanEditText.getText().toString();
         if (isiCatatan.isEmpty()) {
-            Toast.makeText(this, R.string.isi_catatan_tidak_boleh_kosong,
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.isi_catatan_tidak_boleh_kosong, Toast.LENGTH_LONG).show();
             return;
         }
 
-        //TODO: simpan ke file
+        // simpan ke file
         buatFile(namaFile, isiCatatan);
 
         // kembali ke tampilan utama
         finish();
-
     }
 
     private void buatFile(String namaFile, String isiCatatan) {
-        File file = new File(getFilesDir(), namaFile);
+        File directory = new File(getFilesDir() + "/catatan");
+        if (!directory.exists()) directory.mkdir();
+
+        File file = new File(getFilesDir() + "/catatan", namaFile);
         FileOutputStream fos;
         try {
             file.createNewFile();
@@ -77,4 +77,3 @@ public class TambahActivity extends AppCompatActivity {
         }
     }
 }
-
